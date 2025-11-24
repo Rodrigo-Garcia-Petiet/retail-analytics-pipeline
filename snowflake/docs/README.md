@@ -1,0 +1,1 @@
+Aca un documento en markdown que explique que es events_silver, la granularidad, las columnas, etc.

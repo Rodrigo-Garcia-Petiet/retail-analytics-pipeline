@@ -1,0 +1,1 @@
+Aca va informacion sobre el DAG que haga. Documento retail_daily_pipeline.py

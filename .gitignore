@@ -1,0 +1,24 @@
+# Python / notebooks básicos
+__pycache__/
+.ipynb_checkpoints/
+
+# Entornos / dependencias
+.venv/
+venv/
+env/
+ENV/
+retailvenv/
+
+# Configs sensibles y credenciales
+.env
+.env.*
+config/*.yaml
+config/*.yml
+!config/*.example.yaml
+!config/*.example.yml
+
+*.key
+*.pem
+
+# Datos locales grandes (ajustá el nombre si usás otra carpeta)
+data/
