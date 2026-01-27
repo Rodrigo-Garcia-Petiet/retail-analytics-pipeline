@@ -1,3 +1,7 @@
+pip
 pandas==2.3.3
 pyarrow==22.0.0
 python-dotenv==1.2.1
+
+winget
+DatabricksCLI==0.283.0

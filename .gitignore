@@ -22,3 +22,7 @@ config/*.yml
 
 # Datos locales grandes (ajustá el nombre si usás otra carpeta)
 data/
+
+# 
+snowflake/ddl/original/
+databricks/src/original/

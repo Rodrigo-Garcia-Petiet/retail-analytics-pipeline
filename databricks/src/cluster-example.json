@@ -1,0 +1,16 @@
+{
+  "cluster_name": "retail-sf-compute",
+  "spark_version": "14.3.x-scala2.12",
+  "node_type_id": "m5.large",
+  "num_workers": 1,
+  "autotermination_minutes": 10,
+  "data_security_mode": "SINGLE_USER",
+  "single_user_name": <USER>,
+  "aws_attributes": {
+    "zone_id": "auto",
+    "availability": "ON_DEMAND",
+    "ebs_volume_type": "GENERAL_PURPOSE_SSD",
+    "ebs_volume_count": 1,
+    "ebs_volume_size": 32
+  }
+}
