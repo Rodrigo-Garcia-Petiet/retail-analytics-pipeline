@@ -1,0 +1,40 @@
+version: 2
+
+models:
+  - name: mart_session_kpis_daily
+    config:
+      materialized: view # Investigar sobre incremental como forma de materializar.
+      contract:
+        enforced: true
+    columns:
+      - name: event_date
+        data_type: date
+        tests: [not_null, unique]
+
+      - name: daily_q_sessions
+        data_type: number(12,0)
+        tests: [not_null]
+        
+      - name: avg_session_duration_secs
+        data_type: number(6,2)
+        tests: [not_null]
+
+      - name: daily_events
+        data_type: number(12,0)
+        tests: [not_null]
+
+      - name: avg_events_per_session
+        data_type: number(6,2)
+        tests: [not_null]
+
+      - name: daily_q_purchases_events
+        data_type: number(12,0)
+        tests: [not_null]
+
+      - name: daily_q_sessions_with_purchase
+        data_type: number(12,0)
+        tests: [not_null]
+
+      - name: purchase_ratio
+        data_type: number(6,2)
+        tests: [not_null]

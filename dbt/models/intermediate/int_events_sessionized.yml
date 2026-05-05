@@ -1,0 +1,29 @@
+version: 2
+
+models:
+  - name: int_events_sessionized
+    config:
+      materialized: table
+    columns:
+      - name: event_datetime
+        tests: [not_null]
+      - name: event_date
+        tests: [not_null]
+      - name: user_session
+        tests: [not_null]
+      - name: session_segment_number
+        tests: [not_null]
+      - name: analytical_session_id
+        tests: [not_null]
+      - name: user_id
+        tests: [not_null]
+      - name: event_type
+        tests: [not_null]
+      - name: product_id
+        tests: [not_null]
+      - name: brand
+      - name: price
+        tests: [not_null]
+      - name: previous_event_datetime
+      - name: is_new_analytical_session
+        tests: [not_null]

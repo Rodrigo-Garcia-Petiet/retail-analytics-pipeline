@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: dim_user_sessions
+    config:
+      materialized: view # Investigar sobre incremental como forma de materializar.
+    columns:
+      - name: analytical_session_id
+        tests: [not_null, unique]
+      - name: user_session
+        tests: [not_null]
+      - name: session_segment_number
+        tests: [not_null]
+      - name: resolved_user_id
+        tests: [not_null]
+      - name: session_start
+        tests: [not_null]
+      - name: session_end
+        tests: [not_null]
+      - name: amount_events
+        tests: [not_null]
+      - name: q_purchases
+        tests: [not_null]

@@ -1,0 +1,9 @@
+version: 2
+
+models:
+  - name: ctl_dates_to_process
+    config:
+      materialized: view
+    columns:
+      - name: event_date
+        tests: [not_null, unique]

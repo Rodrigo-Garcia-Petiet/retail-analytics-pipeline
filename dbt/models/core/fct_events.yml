@@ -1,0 +1,28 @@
+version: 2
+
+models:
+  - name: fct_events
+    config:
+      materialized: view # Investigar sobre incremental como forma de materializar.
+    columns:
+      - name: event_datetime
+        tests: [not_null]
+      - name: event_date
+        tests: [not_null]
+      - name: analytical_session_id
+        tests: 
+          - not_null
+          - relationships:
+              to: ref('dim_user_sessions')
+              field: analytical_session_id
+      - name: event_type
+        tests: [not_null]
+      - name: product_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_products')
+              field: product_id
+      - name: brand
+      - name: price
+        tests: [not_null]

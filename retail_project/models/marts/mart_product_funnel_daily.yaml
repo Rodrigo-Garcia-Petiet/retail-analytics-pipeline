@@ -1,0 +1,35 @@
+version: 2
+
+models:
+  - name: mart_product_funnel_daily
+    config:
+      materialized: view # Investigar sobre incremental como forma de materializar.
+      contract:
+        enforced: true
+    columns:
+      - name: event_date
+        data_type: date
+        tests: [not_null]
+
+      - name: product_id
+        data_type: number(38,0)
+        tests:
+          - not_null
+          - relationships:
+              arguments: 
+                to: ref('dim_products')
+                field: product_id
+
+      - name: brand
+        data_type: varchar
+
+      - name: event_type
+        data_type: varchar
+        tests:
+        - not_null
+        - accepted_values:
+            values: ['view', 'cart', 'purchase'] # Por si despues se agregan mas event_types
+
+      - name: quantity
+        data_type: number(12,0)
+        tests: [not_null]

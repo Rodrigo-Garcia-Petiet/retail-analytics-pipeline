@@ -1,0 +1,46 @@
+version: 2
+
+# Voy a ver si realmente no hay nulls en donde no se debe (todas menos category_code)
+# Confirmo si los nombres de las columnas son correctos
+# Si el tipo de dato es correcto
+# Si el event_type esta dentro del rango de valores aceptados
+models:
+  - name: stg_events
+    description: "Eventos limpios, estandariza tipos, nombres y rango de valores para event_type"
+    config:
+      materialized: view # Investigar sobre incremental como forma de materializar.
+      contract:          # la config contract lo que hace es asegurar que el modelo devuelva un dataset con los atributos (dtypes) que indica el documento si tiene enforce: true
+        enforced: true
+    columns:
+      - name: event_datetime
+        data_type: timestamp_ntz
+        tests: [not_null]
+      - name: event_date
+        data_type: date
+        tests: [not_null]
+      - name: user_id
+        data_type: number(38,0)
+        tests: [not_null]
+      - name: user_session
+        data_type: varchar
+        tests: [not_null]
+      - name: event_type
+        data_type: varchar
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['view', 'cart', 'purchase']
+      - name: product_id
+        data_type: number(38,0)
+        tests: [not_null]
+      - name: category_id
+        data_type: number(38,0)
+        tests: [not_null]
+      - name: brand
+        data_type: varchar
+      - name: price
+        data_type: number(10,2)
+        tests: [not_null]
+      - name: category_code
+        data_type: varchar

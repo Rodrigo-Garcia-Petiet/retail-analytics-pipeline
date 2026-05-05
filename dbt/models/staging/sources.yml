@@ -1,0 +1,17 @@
+version: 2
+
+sources:
+  - name: events_landing_silver
+    database: DB_DEV
+    schema: SILVER_STAGING
+    tables:
+      - name: events_landing
+        identifier: EVENTS_LANDING
+      - name: loaded_dates
+        identifier: LOADED_DATES
+  - name: analytics_dev
+    database: DB_DEV
+    schema: ANALYTICS_DEV
+    tables:
+      - name: ctl_processed_dates 
+        identifier: CTL_PROCESSED_DATES

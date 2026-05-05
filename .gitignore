@@ -1,3 +1,5 @@
+# ~~~~~ Recomendacion IA ~~~~~ 
+
 # Python / notebooks básicos
 __pycache__/
 .ipynb_checkpoints/
@@ -7,7 +9,6 @@ __pycache__/
 venv/
 env/
 ENV/
-retailvenv/
 
 # Configs sensibles y credenciales
 .env
@@ -16,13 +17,38 @@ config/*.yaml
 config/*.yml
 !config/*.example.yaml
 !config/*.example.yml
-
 *.key
 *.pem
 
-# Datos locales grandes (ajustá el nombre si usás otra carpeta)
+# ~~~~~ Agregados por mi ~~~~~
+
+# Entorno
+retailvenv/
+.env
+
+# Datos locales grandes
 data/
 
-# 
+# Codigo original con claves
 snowflake/ddl/original/
 databricks/src/original/
+
+# Futuras partes del proyecto
+airflow/
+config/
+docs/
+
+# Cosas de dbt que no debo subir
+dbt/logs/
+dbt/target/
+dbt/dbt_packages/
+
+dbt/analyses/
+dbt/seeds/
+dbt/snapshots/
+
+# Documentacion informal
+Documentacion.ipynb
+
+# Imagenes
+imagenes/

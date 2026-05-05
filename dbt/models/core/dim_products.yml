@@ -1,0 +1,14 @@
+version: 2
+
+# Quiero ver si product_id es unique para que funcione como PK y si product_id y category_id no son nulls
+models:
+  - name: dim_products
+    description: "Eventos limpios, estandariza tipos, nombres y rango de valores para event_type"
+    config:
+      materialized: view # Investigar sobre incremental como forma de materializar.
+    columns:
+      - name: product_id
+        tests: [unique, not_null]
+      - name: category_id
+        tests: [not_null]
+      - name: category_code
